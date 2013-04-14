@@ -1,11 +1,9 @@
 require 'bundler/setup'
+require 'vcr'
 
 $:.unshift(File.expand_path('../../lib', __FILE__))
 require 'flickr_jsonp'
 
-require 'vcr'
-
-FLICKR_REQUEST = ->(r) {URI(r.uri).host == 'www.flickr.com'}
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
